@@ -1,0 +1,24 @@
+{
+  "name": "isolang-wasm",
+  "collaborators": [
+    "0xZensh <txr1883@gmail.com>"
+  ],
+  "description": "A wasm with ISO 639 language codes",
+  "version": "0.1.0",
+  "license": "MIT/Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yiwen-ai/isolang-wasm"
+  },
+  "files": [
+    "isolang_wasm_bg.wasm",
+    "isolang_wasm.js",
+    "isolang_wasm.d.ts",
+    "LICENSE-APACHE"
+  ],
+  "module": "isolang_wasm.js",
+  "types": "isolang_wasm.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}

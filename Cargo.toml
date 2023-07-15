@@ -1,0 +1,25 @@
+[package]
+name = "isolang-wasm"
+version = "0.1.0"
+edition = "2021"
+authors = ["0xZensh <txr1883@gmail.com>"]
+description = "A wasm with ISO 639 language codes"
+license = "MIT/Apache-2.0"
+repository = "https://github.com/yiwen-ai/isolang-wasm"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+lto = true
+
+[dependencies]
+wasm-bindgen = "0.2.*"
+isolang = { git = "https://github.com/yiwen-ai/isolang-rs", branch = "master", features = [
+  "english_names",
+  "lowercase_names",
+  "local_names",
+  "list_languages",
+] }
+js-sys = "0.3.64"
