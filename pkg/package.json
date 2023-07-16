@@ -1,10 +1,11 @@
 {
   "name": "isolang-wasm",
+  "type": "module",
   "collaborators": [
     "0xZensh <txr1883@gmail.com>"
   ],
   "description": "A WebAssembly module with ISO 639 language codes",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "MIT/Apache-2.0",
   "repository": {
     "type": "git",
@@ -16,7 +17,7 @@
     "isolang_wasm_bg.js",
     "isolang_wasm.d.ts"
   ],
-  "module": "isolang_wasm.js",
+  "main": "isolang_wasm.js",
   "types": "isolang_wasm.d.ts",
   "sideEffects": [
     "./isolang_wasm.js",

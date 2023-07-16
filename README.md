@@ -4,7 +4,11 @@
 ## Usage
 https://github.com/yiwen-ai/isolang-wasm/blob/main/example/app.js
 
-`node --experimental-wasm-modules ./app.js`:
+To load an ES module, set `"type": "module"` in the package.json, then run node with `--experimental-wasm-modules` flag.
+
+`node --experimental-wasm-modules ./app.js`
+
+Run the example in node.js:
 ```js
 const { ISOLang } = await import("isolang-wasm");
 
