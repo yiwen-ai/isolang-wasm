@@ -5,7 +5,8 @@ ignore_output = &> /dev/null
 
 # https://rustwasm.github.io/docs/wasm-bindgen/reference/deployment.html
 build:
-	@wasm-pack build --target web
+	@rm -rf pkg
+	@wasm-pack build --target bundler
 
 test:
 	@cargo test -- --nocapture

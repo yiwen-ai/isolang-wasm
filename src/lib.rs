@@ -3,17 +3,17 @@ use std::str::FromStr;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
-pub struct ISOLanguage {
+pub struct ISOLang {
     inner: Language,
 }
 
 #[wasm_bindgen]
-impl ISOLanguage {
+impl ISOLang {
     pub fn all() -> JsValue {
         let out = js_sys::Array::new();
         for l in isolang::languages() {
-            if let Some(name) = l.to_autonym() {
-                out.push(&JsValue::from_str(name));
+            if l.to_639_1().is_some() && l.to_autonym().is_some() {
+                out.push(&JsValue::from_str(l.to_name()));
             }
         }
         out.into()
@@ -21,7 +21,7 @@ impl ISOLanguage {
 
     pub fn from_str(name: &str) -> Self {
         let lang = Language::from_str(&name.to_ascii_lowercase()).unwrap_or(Language::Und);
-        ISOLanguage { inner: lang }
+        ISOLang { inner: lang }
     }
 
     pub fn to_name(&self) -> String {
@@ -45,15 +45,15 @@ mod tests {
 
     #[test]
     fn isolang_works() {
-        let lang = ISOLanguage::from_str("zho");
+        let lang = ISOLang::from_str("zho");
         assert_eq!(lang.to_name(), "Chinese");
         assert_eq!(lang.to_autonym(), "中文");
         assert_eq!(lang.to_639_3(), "zho");
 
-        assert_eq!(ISOLanguage::from_str("zh").to_name(), "Chinese");
-        assert_eq!(ISOLanguage::from_str("Zho").to_name(), "Chinese");
-        assert_eq!(ISOLanguage::from_str("Chinese").to_name(), "Chinese");
-        assert_eq!(ISOLanguage::from_str("chinese").to_name(), "Chinese");
-        assert_eq!(ISOLanguage::from_str("中文").to_name(), "Chinese");
+        assert_eq!(ISOLang::from_str("zh").to_name(), "Chinese");
+        assert_eq!(ISOLang::from_str("Zho").to_name(), "Chinese");
+        assert_eq!(ISOLang::from_str("Chinese").to_name(), "Chinese");
+        assert_eq!(ISOLang::from_str("chinese").to_name(), "Chinese");
+        assert_eq!(ISOLang::from_str("中文").to_name(), "Chinese");
     }
 }

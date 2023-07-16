@@ -3,8 +3,8 @@
   "collaborators": [
     "0xZensh <txr1883@gmail.com>"
   ],
-  "description": "A wasm with ISO 639 language codes",
-  "version": "0.1.0",
+  "description": "A WebAssembly module with ISO 639 language codes",
+  "version": "0.2.0",
   "license": "MIT/Apache-2.0",
   "repository": {
     "type": "git",
@@ -13,12 +13,19 @@
   "files": [
     "isolang_wasm_bg.wasm",
     "isolang_wasm.js",
-    "isolang_wasm.d.ts",
-    "LICENSE-APACHE"
+    "isolang_wasm_bg.js",
+    "isolang_wasm.d.ts"
   ],
   "module": "isolang_wasm.js",
   "types": "isolang_wasm.d.ts",
   "sideEffects": [
+    "./isolang_wasm.js",
     "./snippets/*"
+  ],
+  "keywords": [
+    "wasm",
+    "language",
+    "iso639",
+    "isolang"
   ]
 }

@@ -1,11 +1,13 @@
 [package]
 name = "isolang-wasm"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
+publish = false
 authors = ["0xZensh <txr1883@gmail.com>"]
-description = "A wasm with ISO 639 language codes"
+description = "A WebAssembly module with ISO 639 language codes"
 license = "MIT/Apache-2.0"
 repository = "https://github.com/yiwen-ai/isolang-wasm"
+keywords = ["wasm", "language", "iso639", "isolang"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [lib]
@@ -22,4 +24,4 @@ isolang = { git = "https://github.com/yiwen-ai/isolang-rs", branch = "master", f
   "local_names",
   "list_languages",
 ] }
-js-sys = "0.3.64"
+js-sys = "0.3.*"
